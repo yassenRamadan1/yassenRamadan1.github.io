@@ -9,7 +9,9 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.background
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxSize
+import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.core.Page
+import org.example.garfend.components.LocalLanguage
 import org.example.garfend.components.backToTopButton
 import org.example.garfend.components.overflowMenu
 import org.example.garfend.sections.*
@@ -18,26 +20,36 @@ import org.example.garfend.sections.*
 @Page
 @Composable
 fun homePage() {
-
+    val language = LocalLanguage.current
     var menuOpened by remember { mutableStateOf(false) }
-    Box(modifier = Modifier.fillMaxSize().background(Colors.Black)) {
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Top,
-            horizontalAlignment = Alignment.CenterHorizontally
+
+    // Force recomposition when language changes using key()
+    key(language) {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Colors.Black)
+                .styleModifier {
+                    property("direction", if (language.isRTL) "rtl" else "ltr")
+                }
         ) {
-            mainSection(onMenuClicked = { menuOpened = true })
-            aboutSection()
-            serviceSection()
-            portfolioSection()
-            experienceSection()
-            contactSection()
-            footerSection()
-        }
-        backToTopButton()
-        if (menuOpened) {
-            overflowMenu(onMenuClosed = { menuOpened = false })
+            Column(
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.Top,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                mainSection(onMenuClicked = { menuOpened = true })
+                aboutSection()
+                serviceSection()
+                portfolioSection()
+                experienceSection()
+//              contactSection()
+                footerSection()
+            }
+            backToTopButton()
+            if (menuOpened) {
+                overflowMenu(onMenuClosed = { menuOpened = false })
+            }
         }
     }
 }
-
