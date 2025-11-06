@@ -9,6 +9,8 @@ import com.varabyte.kobweb.silk.init.InitSilk
 import com.varabyte.kobweb.silk.init.InitSilkContext
 import com.varabyte.kobweb.silk.style.common.SmoothColorStyle
 import com.varabyte.kobweb.silk.style.toModifier
+import org.example.garfend.components.LocalizationProvider
+import org.example.garfend.components.rememberLanguage
 import org.jetbrains.compose.web.css.*
 
 @InitSilk
@@ -18,9 +20,14 @@ fun updateTheme(ctx: InitSilkContext) {
 @App
 @Composable
 fun MyApp(content: @Composable () -> Unit) {
+    val languageState = rememberLanguage()
+
     SilkApp {
-        Surface(SmoothColorStyle.toModifier().minHeight(100.vh)) {
-            content()
+        LocalizationProvider() {
+            Surface(SmoothColorStyle.toModifier().minHeight(100.vh)) {
+                content()
+            }
         }
+
     }
 }
