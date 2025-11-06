@@ -10,7 +10,12 @@ enum class Experience(
     val company: String,
     val from: String,
     val to: String,
-    val active: Boolean = false
+    val active: Boolean = false,
+    val jobPositionKey: String,
+    val descriptionKey: String,
+    val companyKey: String,
+    val fromKey: String,
+    val toKey: String
 ) {
     First(
         number = "01",
@@ -19,7 +24,12 @@ enum class Experience(
         company = "freelancing",
         from = "November 2024",
         to = "NOW",
-        active = true
+        active = true,
+        jobPositionKey = "exp_mobile_app_developer",
+        descriptionKey = "exp_desc_1",
+        companyKey = "exp_company_freelancing",
+        fromKey = "exp_date_november_2024",
+        toKey = "exp_date_now"
     ),
     Second(
         number = "02",
@@ -28,7 +38,12 @@ enum class Experience(
         company = "Ebda3 Tech",
         from = "May 2025",
         to = "NOW",
-        active = true
+        active = true,
+        jobPositionKey = "exp_flutter_developer",
+        descriptionKey = "exp_desc_2",
+        companyKey = "exp_company_ebda3",
+        fromKey = "exp_date_may_2025",
+        toKey = "exp_date_now"
     ),
     Third(
         number = "03",
@@ -37,6 +52,11 @@ enum class Experience(
         company = "The chance bootcamp",
         from = " July 2023",
         to = "February 2023",
+        jobPositionKey = "exp_android_trainee",
+        descriptionKey = "exp_desc_3",
+        companyKey = "exp_company_chance",
+        fromKey = "exp_date_july_2023",
+        toKey = "exp_date_february_2023"
     ),
     Fourth(
         number = "04",
@@ -45,6 +65,11 @@ enum class Experience(
         company = "ITI",
         from = " Feb 2025",
         to = "Aug 2025",
+        jobPositionKey = "exp_frontend_trainee",
+        descriptionKey = "exp_desc_4",
+        companyKey = "exp_company_iti",
+        fromKey = "exp_date_feb_2025",
+        toKey = "exp_date_aug_2025"
     ),
     Fifth(
         number = "05",
@@ -53,6 +78,11 @@ enum class Experience(
         company = "DEPI",
         from = "Apr 2024",
         to = "Oct 2024",
+        jobPositionKey = "exp_android_cross_trainee",
+        descriptionKey = "exp_desc_5",
+        companyKey = "exp_company_depi",
+        fromKey = "exp_date_apr_2024",
+        toKey = "exp_date_oct_2024"
     );
 
 }

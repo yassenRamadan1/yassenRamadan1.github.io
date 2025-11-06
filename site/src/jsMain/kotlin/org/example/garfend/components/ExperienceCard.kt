@@ -16,7 +16,9 @@ import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.numColumns
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import org.example.garfend.models.Experience
+import org.example.garfend.models.Language
 import org.example.garfend.models.Theme
+import org.example.garfend.components.LocalLanguage
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
@@ -39,7 +41,7 @@ fun experienceCard(
     ) {
         experienceDescription(
             active = active,
-            description = experience.description
+            descriptionKey = experience.descriptionKey
         )
         experienceDetails(
             breakpoint = breakpoint,
@@ -53,7 +55,7 @@ fun experienceCard(
 @Composable
 fun experienceDescription(
     active: Boolean,
-    description: String
+    descriptionKey: String
 ) {
     Box(
         modifier = Modifier
@@ -72,7 +74,7 @@ fun experienceDescription(
                 .color(Colors.White)
                 .toAttrs()
         ) {
-            Text(description)
+            Text(stringResource(descriptionKey))
         }
     }
 }
@@ -92,6 +94,9 @@ fun experienceDetails(
     ) {
         if (breakpoint >= Breakpoint.MD) {
             experienceNumber(active = active, experience = experience)
+            if (LocalLanguage.current == Language.ARABIC) {
+                Box(modifier = Modifier.padding(leftRight = 32.px))
+            }
         }
         Column(
             modifier = Modifier
@@ -116,7 +121,7 @@ fun experienceDetails(
                     .color(Theme.Primary.rgb)
                     .toAttrs()
             ) {
-                Text(experience.jobPosition)
+                Text(stringResource(experience.jobPositionKey))
             }
             P(
                 attrs = Modifier
@@ -127,7 +132,7 @@ fun experienceDetails(
                     .color(Theme.Primary.rgb)
                     .toAttrs()
             ) {
-                Text("${experience.from} - ${experience.to}")
+                Text("${stringResource(experience.fromKey)} - ${stringResource(experience.toKey)}")
             }
             P(
                 attrs = Modifier
@@ -138,7 +143,7 @@ fun experienceDetails(
                     .color(Theme.Primary.rgb)
                     .toAttrs()
             ) {
-                Text(experience.company)
+                Text(stringResource(experience.companyKey))
             }
         }
     }

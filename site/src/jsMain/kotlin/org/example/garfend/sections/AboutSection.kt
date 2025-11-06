@@ -8,17 +8,28 @@ import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.modifiers.*
+import com.varabyte.kobweb.compose.ui.modifiers.backgroundColor
+import com.varabyte.kobweb.compose.ui.modifiers.color
+import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
+import com.varabyte.kobweb.compose.ui.modifiers.fontFamily
+import com.varabyte.kobweb.compose.ui.modifiers.fontSize
+import com.varabyte.kobweb.compose.ui.modifiers.fontStyle
+import com.varabyte.kobweb.compose.ui.modifiers.fontWeight
+import com.varabyte.kobweb.compose.ui.modifiers.id
+import com.varabyte.kobweb.compose.ui.modifiers.margin
+import com.varabyte.kobweb.compose.ui.modifiers.maxWidth
+import com.varabyte.kobweb.compose.ui.modifiers.padding
+import com.varabyte.kobweb.compose.ui.modifiers.textAlign
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.silk.style.toModifier
 import org.example.garfend.components.sectionTitle
+import org.example.garfend.components.stringResource
 import org.example.garfend.models.Section
 import org.example.garfend.models.Theme
 import org.example.garfend.styles.AboutTextStyle
 import org.example.garfend.util.Constants.ABOUT_ME_INFO
 import org.example.garfend.util.Constants.FONT_FAMILY
 import org.example.garfend.util.Constants.SECTION_WIDTH
-import org.jetbrains.compose.web.css.AlignSelf
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.P
@@ -68,7 +79,7 @@ fun aboutMe() {
                 .textAlign(TextAlign.Center)
                 .toAttrs(),
         ) {
-                Text(ABOUT_ME_INFO)
+                Text(stringResource("about_me_text"))
         }
     }
 }

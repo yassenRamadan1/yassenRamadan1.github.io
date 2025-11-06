@@ -19,6 +19,15 @@ import org.jetbrains.compose.web.dom.*
 
 @Composable
 fun contactForm(breakpoint: Breakpoint) {
+    // Extract all string resources at the composable level
+    val formLabelName = stringResource("form_label_name")
+    val formPlaceholderName = stringResource("form_placeholder_name")
+    val formLabelEmail = stringResource("form_label_email")
+    val formPlaceholderEmail = stringResource("form_placeholder_email")
+    val formLabelMessage = stringResource("form_label_message")
+    val formPlaceholderMessage = stringResource("form_placeholder_message")
+    val formButtonSubmit = stringResource("form_button_submit")
+
     Form(
         action = "https://formspree.io/f/xbljkgkl",
         attrs = Modifier
@@ -34,7 +43,7 @@ fun contactForm(breakpoint: Breakpoint) {
                 .toAttrs(),
             forId = "inputName"
         ) {
-            Text("Name")
+            Text(formLabelName)
         }
         Input(
             type = InputType.Text,
@@ -49,7 +58,7 @@ fun contactForm(breakpoint: Breakpoint) {
                 .border(0.px)
                 .boxShadow(0.px, 0.px, 0.px, 0.px, null)
                 .attrsModifier {
-                    attr("placeholder", "Full Name")
+                    attr("placeholder", formPlaceholderName)
                     attr("name", "name")
                     attr("required", "true")
                 }
@@ -63,7 +72,7 @@ fun contactForm(breakpoint: Breakpoint) {
                 .toAttrs(),
             forId = "inputEmail"
         ) {
-            Text("Email")
+            Text(formLabelEmail)
         }
         Input(
             type = InputType.Email,
@@ -78,7 +87,7 @@ fun contactForm(breakpoint: Breakpoint) {
                 .border(0.px)
                 .boxShadow(0.px, 0.px, 0.px, 0.px, null)
                 .attrsModifier {
-                    attr("placeholder", "Email Address")
+                    attr("placeholder", formPlaceholderEmail)
 
                     attr("name", "email")
                     attr("required", "true")
@@ -93,7 +102,7 @@ fun contactForm(breakpoint: Breakpoint) {
                 .toAttrs(),
             forId = "inputMessage"
         ) {
-            Text("Message")
+            Text(formLabelMessage)
         }
         TextArea (
             attrs = InputStyle.toModifier()
@@ -108,7 +117,7 @@ fun contactForm(breakpoint: Breakpoint) {
                 .border(0.px)
                 .boxShadow(0.px, 0.px, 0.px, 0.px, null)
                 .attrsModifier {
-                    attr("placeholder", "Your Message")
+                    attr("placeholder", formPlaceholderMessage)
                     attr("name", "message")
                     attr("required", "true")
                 }
@@ -128,7 +137,7 @@ fun contactForm(breakpoint: Breakpoint) {
                     .cursor(Cursor.Pointer)
                     .toAttrs()
             ) {
-                Text("Submit")
+                Text(formButtonSubmit)
             }
         }
     }

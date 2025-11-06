@@ -75,7 +75,7 @@ fun contactContent() {
             section = Section.Contact,
             alignment = Alignment.CenterHorizontally
         )
-        socialBar(title = true)
-//        contactForm(breakpoint = breakpoint)
+        socialBar(title = true, breakpoint = breakpoint)
+        contactForm(breakpoint = breakpoint)
     }
 }

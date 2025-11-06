@@ -16,15 +16,20 @@ import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import kotlinx.browser.document
 import kotlinx.browser.window
+import org.example.garfend.components.LocalLanguage
+import org.example.garfend.models.Language
 import org.example.garfend.models.Theme
 import org.example.garfend.styles.BackToTopButtonStyle
 import org.jetbrains.compose.web.css.Position
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
+import org.w3c.dom.SMOOTH
+import org.w3c.dom.ScrollToOptions
 
 @Composable
 fun backToTopButton() {
     val breakpoint = rememberBreakpoint()
+    val language = LocalLanguage.current
     var scroll: Double? by remember { mutableStateOf(null) }
 
     LaunchedEffect(Unit) {
@@ -53,13 +58,23 @@ fun backToTopButton() {
                 )
                 .borderRadius(20.percent)
                 .margin(
-                    right = if(breakpoint <= Breakpoint.SM) 30.px else 40.px,
+                    left = if (language == Language.ARABIC) {
+                        if (breakpoint <= Breakpoint.SM) 30.px else 40.px
+                    } else 0.px,
+                    right = if (language == Language.ARABIC) 0.px else {
+                        if (breakpoint <= Breakpoint.SM) 30.px else 40.px
+                    },
                     bottom = if(breakpoint <= Breakpoint.SM) 30.px else 40.px
                 )
                 .backgroundColor(Theme.DarkRed.rgb)
                 .cursor(Cursor.Pointer)
                 .onClick {
-                    document.documentElement?.scroll(x = 0.0, y = 0.0)
+                    window.scrollTo(
+                        ScrollToOptions(
+                            top = 0.0,
+                            behavior = org.w3c.dom.ScrollBehavior.SMOOTH
+                        )
+                    )
                 }
                 .styleModifier {
                     property("pointer-events", "auto")

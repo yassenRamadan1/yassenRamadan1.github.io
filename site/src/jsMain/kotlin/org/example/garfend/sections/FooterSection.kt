@@ -16,6 +16,7 @@ import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import org.example.garfend.components.socialBar
+import org.example.garfend.components.stringResource
 import org.example.garfend.models.Section
 import org.example.garfend.models.Theme
 import org.example.garfend.styles.NavigationItemStyle
@@ -65,7 +66,7 @@ fun footerContent() {
                 footerMenu(row = false)
             }
         }
-        socialBar(row = true)
+        socialBar(row = true, breakpoint = breakpoint)
     }
 }
 
@@ -84,7 +85,7 @@ fun footerMenu(row: Boolean = true) {
                 .fontWeight(FontWeight.Normal)
                 .textDecorationLine(TextDecorationLine.None),
             path = section.path,
-            text = section.title
+            text = stringResource(section.titleKey)
         )
     }
 }

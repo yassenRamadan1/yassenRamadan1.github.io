@@ -9,6 +9,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Color.Companion.argb
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
+import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.navigation.OpenLinkStrategy
 import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.icons.fa.FaXmark
@@ -31,7 +32,11 @@ import org.jetbrains.compose.web.css.*
 fun overflowMenu(onMenuClosed: () -> Unit) {
     val scope = rememberCoroutineScope()
     val breakpoint = rememberBreakpoint()
-    var translateX by remember { mutableStateOf((-100).percent) }
+    val language = LocalLanguage.current
+
+    // In RTL, slide from right (100%), in LTR slide from left (-100%)
+    val hiddenPosition = if (language.isRTL) 100.percent else (-100).percent
+    var translateX by remember { mutableStateOf(hiddenPosition) }
     var opacity by remember { mutableStateOf(0.percent) }
 
     LaunchedEffect(breakpoint) {
@@ -39,7 +44,7 @@ fun overflowMenu(onMenuClosed: () -> Unit) {
         opacity = 100.percent
         if (breakpoint > Breakpoint.MD) {
             scope.launch {
-                translateX = (-100).percent
+                translateX = hiddenPosition
                 opacity = 0.percent
                 delay(500)
                 onMenuClosed()
@@ -75,17 +80,28 @@ fun overflowMenu(onMenuClosed: () -> Unit) {
                 FaXmark(
                     modifier = Modifier
                         .cursor(Cursor.Pointer)
-                        .margin(right = 20.px)
+                        .styleModifier {
+                            property("margin-inline-end", 20.px.toString())
+                        }
                         .color(Colors.White)
                         .onClick {
                             scope.launch {
-                                translateX = (-100).percent
+                                translateX = hiddenPosition
                                 opacity = 0.percent
                                 delay(500)
                                 onMenuClosed()
                             }
                         },
                     size = IconSize.LG
+                )
+            }
+            Row(
+                modifier = Modifier.margin(bottom = 20.px),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                LanguageSwitchButton(
+                    modifier = Modifier.fontSize(16.px),
+                    showBackground = false
                 )
             }
             Section.entries.toTypedArray().take(6).forEach { section ->
@@ -99,14 +115,14 @@ fun overflowMenu(onMenuClosed: () -> Unit) {
                         .textDecorationLine(TextDecorationLine.None)
                         .onClick {
                             scope.launch {
-                                translateX = (-100).percent
+                                translateX = hiddenPosition
                                 opacity = 0.percent
                                 delay(500)
                                 onMenuClosed()
                             }
                         },
                     path = section.path,
-                    text = section.title,
+                    text = stringResource(section.titleKey),
                     openInternalLinksStrategy = OpenLinkStrategy.IN_PLACE
                 )
             }
