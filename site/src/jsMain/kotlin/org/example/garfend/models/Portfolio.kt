@@ -108,8 +108,8 @@ enum class Portfolio(
         title = "Orderk (Testing phase)",
         description = PortfolioCategory.MobileFlutter,
         links = PortfolioLinks(
-            // playStore = "https://play.google.com/store/apps/details?id=com.dabdoub.butchery&hl=en"
-            // appStore = "https://apps.apple.com/sa/app/fromscratch/id6754660941?l=ar"
+            playStore = "https://play.google.com/store/apps/details?id=com.orderk.shop",
+            appStore = "https://apps.apple.com/eg/app/orderk-%D8%A7%D9%88%D8%B1%D8%AF%D8%B1%D8%A7%D9%83/id6753081872"
         ),
         titleKey = "portfolio_orderk"
     ),
