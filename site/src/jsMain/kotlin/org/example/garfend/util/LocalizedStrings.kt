@@ -57,6 +57,7 @@ object Strings {
             "portfolio_dabdoub" to "Dabdoub Butchery",
             "portfolio_titanium_gym" to "Titanuim gym",
             "portfolio_orderk" to "Orderk",
+            "portfolio_serinekamal" to "Serine Kamal",
             // Portfolio Categories
             "portfolio_cat_mobile_kotlin" to "Android App - jetpack compose",
             "portfolio_cat_mobile_cmp" to "Mobile App - Compose Multiplatform",
@@ -66,6 +67,11 @@ object Strings {
             // Portfolio Alt Text
             "portfolio_image_alt" to "Portfolio Image",
             "portfolio_link_icon_alt" to "Link Icon",
+
+            // Portfolio Status
+            "status_production" to "",
+            "status_in_development" to "In development",
+            "status_in_testing" to "In testing",
 
             // Experience - Job Positions
             "exp_mobile_app_developer" to "Mobile App Developer",
@@ -170,6 +176,7 @@ object Strings {
             "portfolio_dabdoub" to "جزاره دبدوب",
             "portfolio_titanium_gym" to "تيتانيوم جيم",
             "portfolio_orderk" to "اوردرك",
+            "portfolio_serinekamal" to "سيرين كمال",
 
             // Portfolio Categories
             "portfolio_cat_mobile_kotlin" to "تطبيق Android - Jetpack Compose",
@@ -180,6 +187,11 @@ object Strings {
             // Portfolio Alt Text
             "portfolio_image_alt" to "صورة المشروع",
             "portfolio_link_icon_alt" to "أيقونة الرابط",
+
+            // Portfolio Status
+            "status_production" to "",
+            "status_in_development" to "قيد التطوير",
+            "status_in_testing" to "قيد الاختبار",
 
             // Experience - Job Positions
             "exp_mobile_app_developer" to "مطور تطبيقات محمولة",

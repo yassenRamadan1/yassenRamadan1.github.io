@@ -24,6 +24,7 @@ import com.varabyte.kobweb.navigation.OpenLinkStrategy
 import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.navigation.Link
 import com.varabyte.kobweb.silk.style.toModifier
+import org.example.garfend.models.DevelopmentStatus
 import org.example.garfend.models.Portfolio
 import org.example.garfend.models.Theme
 import org.example.garfend.styles.PortfolioSectionStyle
@@ -32,6 +33,22 @@ import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
+
+/**
+ * Helper function to format the portfolio title with status.
+ * For PRODUCTION status: returns just the title
+ * For other statuses: returns "title (status)"
+ */
+@Composable
+private fun getFormattedTitle(portfolio: Portfolio): String {
+    val title = stringResource(portfolio.titleKey)
+    return if (portfolio.status == DevelopmentStatus.PRODUCTION) {
+        title
+    } else {
+        val status = stringResource(portfolio.status.titleKey)
+        "$title ($status)"
+    }
+}
 
 @Composable
 fun portfolioCard(
@@ -201,7 +218,7 @@ private fun crossPlatformCard(
                     .fontWeight(FontWeight.Bold)
                     .toAttrs()
             ) {
-                Text(stringResource(portfolio.titleKey))
+                Text(getFormattedTitle(portfolio))
             }
             P(
                 attrs = Modifier
@@ -281,7 +298,7 @@ private fun singleLinkCard(
                     .fontWeight(FontWeight.Bold)
                     .toAttrs()
             ) {
-                Text(stringResource(portfolio.titleKey))
+                Text(getFormattedTitle(portfolio))
             }
             P(
                 attrs = Modifier

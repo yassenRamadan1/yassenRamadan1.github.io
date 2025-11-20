@@ -63,12 +63,23 @@ enum class LinkType(val label: String, val icon: String) {
     OTHER("View", "fas fa-link")
 }
 
+/**
+ * Development status for portfolio items.
+ * Used to indicate the current phase of a project.
+ */
+enum class DevelopmentStatus(val titleKey: String) {
+    PRODUCTION("status_production"),           // No suffix shown
+    IN_DEVELOPMENT("status_in_development"),   // Shows "(In development)"
+    IN_TESTING("status_in_testing")            // Shows "(In testing)"
+}
+
 enum class Portfolio(
     val image: String,
     val title: String,
     val description: PortfolioCategory,
     val links: PortfolioLinks,
-    val titleKey: String
+    val titleKey: String,
+    val status: DevelopmentStatus = DevelopmentStatus.PRODUCTION
 ) {
 
     One(
@@ -105,7 +116,7 @@ enum class Portfolio(
     ),
     Four(
         image = Res.Image.orderk,
-        title = "Orderk (Testing phase)",
+        title = "Orderk",
         description = PortfolioCategory.MobileFlutter,
         links = PortfolioLinks(
             playStore = "https://play.google.com/store/apps/details?id=com.orderk.shop",
@@ -113,9 +124,19 @@ enum class Portfolio(
         ),
         titleKey = "portfolio_orderk"
     ),
-
-
     Five(
+        image = Res.Image.serineKamal,
+        title = "SerineKamal",
+        description = PortfolioCategory.MobileFlutter,
+        links = PortfolioLinks(
+              website = "https://serinek.com/"
+//            playStore = "https://play.google.com/store/apps/details?id=com.orderk.shop",
+//            appStore = "https://apps.apple.com/eg/app/orderk-%D8%A7%D9%88%D8%B1%D8%AF%D8%B1%D8%A7%D9%83/id6753081872"
+        ),
+        titleKey = "portfolio_serinekamal",
+        status = DevelopmentStatus.IN_DEVELOPMENT
+    ),
+    Six(
         image = Res.Image.musemagic,
         title = "MuseMagic",
         description = PortfolioCategory.MobileKotlin,
@@ -124,18 +145,17 @@ enum class Portfolio(
         ),
         titleKey = "portfolio_musemagic"
     ),
-
-    Six(
+    Seven(
         image = Res.Image.dawaalink2,
         title = "Dawaa Link",
         description = PortfolioCategory.MobileFlutter,
         links = PortfolioLinks(
             website = "https://dawaalink.vercel.app/"
         ),
-        titleKey = "portfolio_dawaa_link"
+        titleKey = "portfolio_dawaa_link",
+        status = DevelopmentStatus.IN_DEVELOPMENT
     ),
-
-    Seven(
+    Eight(
         image = Res.Image.titanumgym,
         title = "Titanuim gym",
         description = PortfolioCategory.UiUx,

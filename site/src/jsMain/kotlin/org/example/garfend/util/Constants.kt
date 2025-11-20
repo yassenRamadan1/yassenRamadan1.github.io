@@ -56,6 +56,7 @@ object Res {
         const val titanumgym = "titanumgym.png"
         const val dabdoub = "dabdoub.png"
         const val orderk =  "orderk.png"
+        const val serineKamal = "serinekamal.jpeg"
 
     }
 }
