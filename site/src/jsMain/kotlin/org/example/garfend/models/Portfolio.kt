@@ -115,6 +115,16 @@ enum class Portfolio(
         titleKey = "portfolio_dabdoub"
     ),
     Four(
+        image = Res.Image.serineKamal,
+        title = "SK Furniture",
+        description = PortfolioCategory.MobileFlutter,
+        links = PortfolioLinks(
+            playStore = "https://play.google.com/store/apps/details?id=com.essam.serinekamal",
+            appStore = "https://apps.apple.com/eg/app/serinekamal/id6755937638?l=ar"
+        ),
+        titleKey = "portfolio_serinekamal",
+    ),
+    Five(
         image = Res.Image.orderk,
         title = "Orderk",
         description = PortfolioCategory.MobileFlutter,
@@ -124,18 +134,7 @@ enum class Portfolio(
         ),
         titleKey = "portfolio_orderk"
     ),
-    Five(
-        image = Res.Image.serineKamal,
-        title = "SerineKamal",
-        description = PortfolioCategory.MobileFlutter,
-        links = PortfolioLinks(
-              website = "https://serinek.com/"
-//            playStore = "https://play.google.com/store/apps/details?id=com.orderk.shop",
-//            appStore = "https://apps.apple.com/eg/app/orderk-%D8%A7%D9%88%D8%B1%D8%AF%D8%B1%D8%A7%D9%83/id6753081872"
-        ),
-        titleKey = "portfolio_serinekamal",
-        status = DevelopmentStatus.IN_DEVELOPMENT
-    ),
+
     Six(
         image = Res.Image.musemagic,
         title = "MuseMagic",
