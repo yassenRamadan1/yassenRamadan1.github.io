@@ -109,7 +109,7 @@ fun overflowMenu(onMenuClosed: () -> Unit) {
                     modifier = NavigationItemStyle.toModifier()
                         .then(LinkOverrideStyle.toModifier())
                         .margin(bottom = 10.px)
-                        .fontFamily(FONT_FAMILY)
+                        .fontFamily(*FONT_FAMILY)
                         .fontSize(16.px)
                         .fontWeight(FontWeight.Normal)
                         .textDecorationLine(TextDecorationLine.None)
