@@ -89,7 +89,7 @@ private fun socialLinks(
             P(
                 attrs = NavigationItemStyle.toModifier()
                     .margin(leftRight = 16.px)
-                    .fontFamily(FONT_FAMILY)
+                    .fontFamily(*FONT_FAMILY)
                     .fontSize(20.px)
                     .fontWeight(FontWeight.Normal)
                     .color(Theme.Primary.rgb)
@@ -131,7 +131,7 @@ private fun socialLinks(
             P(
                 attrs = NavigationItemStyle.toModifier()
                     .margin(leftRight = 16.px)
-                    .fontFamily(FONT_FAMILY)
+                    .fontFamily(*FONT_FAMILY)
                     .fontSize(20.px)
                     .fontWeight(FontWeight.Normal)
                     .color(Theme.Primary.rgb)
