@@ -12,6 +12,8 @@ import com.varabyte.kobweb.silk.style.toModifier
 import org.example.garfend.components.LocalizationProvider
 import org.example.garfend.components.rememberLanguage
 import org.jetbrains.compose.web.css.*
+import kotlinx.browser.document
+import org.w3c.dom.HTMLLinkElement
 
 @InitSilk
 fun updateTheme(ctx: InitSilkContext) {
@@ -20,6 +22,7 @@ fun updateTheme(ctx: InitSilkContext) {
 @App
 @Composable
 fun MyApp(content: @Composable () -> Unit) {
+    EnsureGlobalFonts()
     val languageState = rememberLanguage()
 
     SilkApp {
@@ -29,5 +32,22 @@ fun MyApp(content: @Composable () -> Unit) {
             }
         }
 
+    }
+}
+
+@Composable
+private fun EnsureGlobalFonts() {
+    DisposableEffect(Unit) {
+        val head = document.head
+        val existing = head?.querySelector("#global-fonts") as? HTMLLinkElement
+        if (existing == null) {
+            val link = document.createElement("link") as HTMLLinkElement
+            link.id = "global-fonts"
+            link.rel = "stylesheet"
+            link.href =
+                "https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+            head?.appendChild(link)
+        }
+        onDispose { }
     }
 }

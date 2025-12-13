@@ -27,7 +27,6 @@ import org.example.garfend.components.stringResource
 import org.example.garfend.models.Section
 import org.example.garfend.models.Theme
 import org.example.garfend.styles.AboutTextStyle
-import org.example.garfend.util.Constants.ABOUT_ME_INFO
 import org.example.garfend.util.Constants.FONT_FAMILY
 import org.example.garfend.util.Constants.SECTION_WIDTH
 import org.jetbrains.compose.web.css.percent
@@ -43,16 +42,7 @@ fun aboutSection() {
             .maxWidth(SECTION_WIDTH.px)
             .padding(topBottom = 150.px)
             .backgroundColor(Theme.LightGrayBg.rgb),
-    ) {
-        aboutContent()
-    }
-}
-
-@Composable
-fun aboutContent() {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth(),
+        contentAlignment = Alignment.Center
     ) {
         aboutMe()
     }
@@ -64,19 +54,23 @@ fun aboutMe() {
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        sectionTitle(section = Section.About,
-            alignment = Alignment.CenterHorizontally
+        sectionTitle(
+            modifier = Modifier
+                .fillMaxWidth(70.percent)
+                .margin(bottom = 20.px),
+            section = Section.About,
+            alignment = Alignment.Start
         )
         P(
             attrs = AboutTextStyle.toModifier()
                 .margin(topBottom = 25.px)
                 .maxWidth(70.percent)
-                .fontFamily(FONT_FAMILY)
+                .fontFamily(*FONT_FAMILY)
                 .fontSize(22.px)
                 .fontWeight(FontWeight.Normal)
                 .fontStyle(FontStyle.Italic)
                 .color(Theme.Secondary.rgb)
-                .textAlign(TextAlign.Center)
+                .textAlign(TextAlign.Start)
                 .toAttrs(),
         ) {
                 Text(stringResource("about_me_text"))

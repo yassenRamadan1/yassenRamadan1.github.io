@@ -3,6 +3,8 @@ package org.example.garfend.styles
 import com.varabyte.kobweb.compose.css.Transition
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
+import com.varabyte.kobweb.compose.ui.modifiers.border
+import com.varabyte.kobweb.compose.ui.modifiers.borderRadius
 import com.varabyte.kobweb.compose.ui.modifiers.color
 import com.varabyte.kobweb.compose.ui.modifiers.transform
 import com.varabyte.kobweb.compose.ui.modifiers.transition
@@ -10,31 +12,39 @@ import com.varabyte.kobweb.compose.ui.modifiers.width
 import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.selectors.hover
-import org.example.garfend.models.Theme
 import org.jetbrains.compose.web.ExperimentalComposeWebApi
-import org.jetbrains.compose.web.css.*
+import org.jetbrains.compose.web.css.LineStyle
+import org.jetbrains.compose.web.css.deg
+import org.jetbrains.compose.web.css.ms
+import org.jetbrains.compose.web.css.percent
+import org.jetbrains.compose.web.css.px
+import org.jetbrains.compose.web.css.rgba
+import org.jetbrains.compose.web.css.rgb
+
+private val AccentColor = rgb(r = 255, g = 59, b = 92)
+private val MutedLinkColor = rgb(r = 170, g = 170, b = 170)
 
 val NavigationItemStyle = CssStyle {
     base {
         Modifier
             .styleModifier {
-                property("--bs-link-color", Theme.Secondary.rgb)
-                property("--silk-link-default-color", Theme.Secondary.rgb)
-                property("--silk-link-visited-color", Theme.Secondary.rgb)
-                property("color", "${Theme.Secondary.rgb} !important")
+                property("--bs-link-color", MutedLinkColor)
+                property("--silk-link-default-color", MutedLinkColor)
+                property("--silk-link-visited-color", MutedLinkColor)
+                property("color", "$MutedLinkColor !important")
             }
-            .color(Theme.Secondary.rgb)
+            .color(MutedLinkColor)
             .transition(Transition.of(property = "color", duration = 200.ms))
     }
     hover {
         Modifier
             .styleModifier {
-                property("--bs-link-hover-color", Theme.DarkRed.rgb)
-                property("--silk-link-default-color", Theme.DarkRed.rgb)
-                property("--silk-link-visited-color", Theme.DarkRed.rgb)
-                property("color", "${Theme.DarkRed.rgb} !important")
+                property("--bs-link-hover-color", Colors.White)
+                property("--silk-link-default-color", Colors.White)
+                property("--silk-link-visited-color", Colors.White)
+                property("color", "${Colors.White} !important")
             }
-            .color(Theme.DarkRed.rgb)
+            .color(Colors.White)
     }
 }
 
@@ -57,7 +67,27 @@ val SocialLinkStyle = CssStyle {
             .transition(Transition.of(property = "color", duration = 200.ms))
     }
     hover {
-        Modifier.color(Theme.LighterRed.rgb)
+        Modifier.color(AccentColor)
+    }
+}
+
+val SocialIconButtonStyle = CssStyle {
+    base {
+        Modifier
+            .border(width = 1.px, style = LineStyle.Solid, color = rgba(255, 255, 255, 0.15))
+            .borderRadius(50.percent)
+            .transition(
+                Transition.of(property = "transform", duration = 200.ms),
+                Transition.of(property = "border-color", duration = 200.ms),
+                Transition.of(property = "color", duration = 200.ms)
+            )
+            .color(Colors.White)
+    }
+    hover {
+        Modifier
+            .border(width = 1.px, style = LineStyle.Solid, color = AccentColor)
+            .transform { scale(1.08) }
+            .color(AccentColor)
     }
 }
 
@@ -77,17 +107,17 @@ val LinkOverrideStyle = CssStyle {
     base {
         Modifier.styleModifier {
             // Override Silk link variables and use important to override all defaults
-            property("--silk-link-default-color", "${Theme.Secondary.rgb} !important")
-            property("--silk-link-visited-color", "${Theme.Secondary.rgb} !important")
-            property("color", "${Theme.Secondary.rgb} !important")
+            property("--silk-link-default-color", "$MutedLinkColor !important")
+            property("--silk-link-visited-color", "$MutedLinkColor !important")
+            property("color", "$MutedLinkColor !important")
             property("text-decoration", "none !important")
         }
     }
     hover {
         Modifier.styleModifier {
-            property("--silk-link-default-color", "${Theme.DarkRed.rgb} !important")
-            property("--silk-link-visited-color", "${Theme.DarkRed.rgb} !important")
-            property("color", "${Theme.DarkRed.rgb} !important")
+            property("--silk-link-default-color", "${Colors.White} !important")
+            property("--silk-link-visited-color", "${Colors.White} !important")
+            property("color", "${Colors.White} !important")
             property("text-decoration", "none !important")
         }
     }
@@ -97,14 +127,11 @@ val LinkOverrideStyle = CssStyle {
 val MainImageStyle = CssStyle {
     base {
         Modifier
-            .styleModifier {
-                filter { grayscale(100.percent) }
-            }
-            .transition(Transition.of(property = "filter", duration = 200.ms))
+            .transition(
+                Transition.of(property = "transform", duration = 300.ms)
+            )
     }
     hover {
-        Modifier.styleModifier {
-            filter { grayscale(0.percent) }
-        }
+        Modifier.transform { scale(1.02) }
     }
 }

@@ -50,7 +50,7 @@ fun serviceContent() {
                 .fillMaxWidth()
                 .margin(bottom = 20.px),
             section = Section.Service,
-            alignment = Alignment.CenterHorizontally
+            alignment = Alignment.Start
         )
         SimpleGrid(numColumns = numColumns(base = 1, sm = 2, md = 3)) {
             Service.entries.forEach { service ->

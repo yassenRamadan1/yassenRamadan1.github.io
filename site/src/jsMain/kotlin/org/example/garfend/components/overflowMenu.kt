@@ -1,6 +1,16 @@
 package org.example.garfend.components
-import androidx.compose.runtime.*
-import com.varabyte.kobweb.compose.css.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
+import com.varabyte.kobweb.compose.css.Cursor
+import com.varabyte.kobweb.compose.css.FontWeight
+import com.varabyte.kobweb.compose.css.Overflow
+import com.varabyte.kobweb.compose.css.ScrollBehavior
+import com.varabyte.kobweb.compose.css.TextDecorationLine
 import com.varabyte.kobweb.compose.css.Transition
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Row
@@ -8,10 +18,29 @@ import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Color.Companion.argb
 import com.varabyte.kobweb.compose.ui.graphics.Colors
-import com.varabyte.kobweb.compose.ui.modifiers.*
+import com.varabyte.kobweb.compose.ui.modifiers.backgroundColor
+import com.varabyte.kobweb.compose.ui.modifiers.color
+import com.varabyte.kobweb.compose.ui.modifiers.cursor
+import com.varabyte.kobweb.compose.ui.modifiers.fillMaxHeight
+import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
+import com.varabyte.kobweb.compose.ui.modifiers.fontFamily
+import com.varabyte.kobweb.compose.ui.modifiers.fontSize
+import com.varabyte.kobweb.compose.ui.modifiers.fontWeight
+import com.varabyte.kobweb.compose.ui.modifiers.height
+import com.varabyte.kobweb.compose.ui.modifiers.margin
+import com.varabyte.kobweb.compose.ui.modifiers.onClick
+import com.varabyte.kobweb.compose.ui.modifiers.opacity
+import com.varabyte.kobweb.compose.ui.modifiers.overflow
+import com.varabyte.kobweb.compose.ui.modifiers.padding
+import com.varabyte.kobweb.compose.ui.modifiers.position
+import com.varabyte.kobweb.compose.ui.modifiers.scrollBehavior
+import com.varabyte.kobweb.compose.ui.modifiers.textDecorationLine
+import com.varabyte.kobweb.compose.ui.modifiers.transition
+import com.varabyte.kobweb.compose.ui.modifiers.translateX
+import com.varabyte.kobweb.compose.ui.modifiers.width
+import com.varabyte.kobweb.compose.ui.modifiers.zIndex
 import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.navigation.OpenLinkStrategy
-import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.icons.fa.FaXmark
 import com.varabyte.kobweb.silk.components.icons.fa.IconSize
 import com.varabyte.kobweb.silk.components.navigation.Link
@@ -22,11 +51,14 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.example.garfend.models.Section
 import org.example.garfend.models.Theme
-import org.example.garfend.styles.NavigationItemStyle
 import org.example.garfend.styles.LinkOverrideStyle
+import org.example.garfend.styles.NavigationItemStyle
 import org.example.garfend.util.Constants.FONT_FAMILY
-import org.example.garfend.util.Res
-import org.jetbrains.compose.web.css.*
+import org.jetbrains.compose.web.css.Position
+import org.jetbrains.compose.web.css.ms
+import org.jetbrains.compose.web.css.percent
+import org.jetbrains.compose.web.css.px
+import org.jetbrains.compose.web.css.vh
 
 @Composable
 fun overflowMenu(onMenuClosed: () -> Unit) {
@@ -109,7 +141,7 @@ fun overflowMenu(onMenuClosed: () -> Unit) {
                     modifier = NavigationItemStyle.toModifier()
                         .then(LinkOverrideStyle.toModifier())
                         .margin(bottom = 10.px)
-                        .fontFamily(FONT_FAMILY)
+                        .fontFamily(*FONT_FAMILY)
                         .fontSize(16.px)
                         .fontWeight(FontWeight.Normal)
                         .textDecorationLine(TextDecorationLine.None)
