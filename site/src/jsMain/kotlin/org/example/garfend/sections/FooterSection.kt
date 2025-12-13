@@ -76,7 +76,7 @@ fun footerMenu(row: Boolean = true) {
         Link(
             modifier = NavigationItemStyle.toModifier()
                 .then(LinkOverrideStyle.toModifier())
-                .fontFamily(FONT_FAMILY)
+                .fontFamily(*FONT_FAMILY)
                 .padding(
                     right = if (row) 20.px else 0.px,
                     bottom = if (row) 0.px else 20.px
