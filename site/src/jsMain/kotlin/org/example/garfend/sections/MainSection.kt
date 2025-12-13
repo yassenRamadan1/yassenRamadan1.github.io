@@ -49,7 +49,7 @@ import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
 
 @Composable
-fun mainSection(onMenuClicked: () -> Unit) {
+fun mainSection(onMenuClicked: () -> Unit, isMenuOpen: Boolean = false) {
     Box(
         modifier = Modifier
             .id(Section.Home.id)
@@ -61,19 +61,19 @@ fun mainSection(onMenuClicked: () -> Unit) {
         contentAlignment = Alignment.Center
     ) {
 //        mainBackground()
-        mainContent(onMenuClicked = onMenuClicked)
+        mainContent(onMenuClicked = onMenuClicked, isMenuOpen = isMenuOpen)
     }
 }
 
 
 @Composable
-fun mainContent(onMenuClicked: () -> Unit) {
+fun mainContent(onMenuClicked: () -> Unit, isMenuOpen: Boolean) {
     val breakpoint = rememberBreakpoint()
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        header(onMenuClicked = onMenuClicked)
+        header(onMenuClicked = onMenuClicked, isMenuOpen = isMenuOpen)
         mainText(breakpoint = breakpoint)
     }
 }

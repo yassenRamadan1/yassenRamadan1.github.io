@@ -50,9 +50,9 @@ import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.example.garfend.models.Section
-import org.example.garfend.models.Theme
 import org.example.garfend.styles.LinkOverrideStyle
 import org.example.garfend.styles.NavigationItemStyle
+import org.example.garfend.styles.SideMenuShellStyle
 import org.example.garfend.util.Constants.FONT_FAMILY
 import org.jetbrains.compose.web.css.Position
 import org.jetbrains.compose.web.css.ms
@@ -101,7 +101,21 @@ fun overflowMenu(onMenuClosed: () -> Unit) {
                 .width(if (breakpoint < Breakpoint.MD) 50.percent else 25.percent)
                 .overflow(Overflow.Auto)
                 .scrollBehavior(ScrollBehavior.Smooth)
-                .backgroundColor(Theme.LightGray.rgb)
+                .then(SideMenuShellStyle.toModifier())
+                .styleModifier {
+                    if (language.isRTL) {
+                        property("border-top-left-radius", "32px")
+                        property("border-bottom-left-radius", "32px")
+                        property("border-top-right-radius", "0px")
+                        property("border-bottom-right-radius", "0px")
+                    } else {
+                        property("border-top-left-radius", "0px")
+                        property("border-bottom-left-radius", "0px")
+                        property("border-top-right-radius", "32px")
+                        property("border-bottom-right-radius", "32px")
+                    }
+                }
+
                 .translateX(tx = translateX)
                 .transition(Transition.of(property = "translate", duration = 500.ms))
         ) {
