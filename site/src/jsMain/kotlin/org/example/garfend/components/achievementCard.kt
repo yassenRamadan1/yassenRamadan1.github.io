@@ -39,7 +39,7 @@ fun achievementCard(
                 attrs = Modifier
                     .fillMaxWidth()
                     .margin(topBottom = 0.px)
-                    .fontFamily(FONT_FAMILY)
+                    .fontFamily(*FONT_FAMILY)
                     .fontSize(30.px)
                     .fontWeight(FontWeight.Bolder)
                     .color(Theme.Primary.rgb)
@@ -54,7 +54,7 @@ fun achievementCard(
                 attrs = Modifier
                     .fillMaxWidth()
                     .margin(topBottom = 0.px)
-                    .fontFamily(FONT_FAMILY)
+                    .fontFamily(*FONT_FAMILY)
                     .fontSize(16.px)
                     .fontWeight(FontWeight.Normal)
                     .color(Theme.Secondary.rgb)
