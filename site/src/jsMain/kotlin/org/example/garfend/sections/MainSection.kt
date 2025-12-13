@@ -33,6 +33,7 @@ import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import kotlinx.browser.window
 import org.example.garfend.components.GlowingButton
+import org.example.garfend.components.LocalLanguage
 import org.example.garfend.components.SocialIconButton
 import org.example.garfend.components.header
 import org.example.garfend.components.mainBackground
@@ -111,6 +112,7 @@ fun mainText(breakpoint: Breakpoint) {
 
 @Composable
 private fun HeroTextBlock(breakpoint: Breakpoint, alignStart: Boolean) {
+    val language = LocalLanguage.current
     val introSize = if (breakpoint >= Breakpoint.LG) 24.px else 18.px
     val nameSize = if (breakpoint >= Breakpoint.LG) 56.px else 36.px
     val roleSize = if (breakpoint >= Breakpoint.LG) 20.px else 16.px
@@ -142,7 +144,7 @@ private fun HeroTextBlock(breakpoint: Breakpoint, alignStart: Boolean) {
                 .fontSize(nameSize)
                 .fontWeight(FontWeight.Bold)
                 .color(Colors.White)
-                .textAlign(textAlign)
+                .textAlign(if(language.isRTL) TextAlign.Right else textAlign)
                 .toAttrs()
         ) {
             Text(stringResource("name"))
