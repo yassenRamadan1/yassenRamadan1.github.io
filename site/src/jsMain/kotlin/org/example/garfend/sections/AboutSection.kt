@@ -27,7 +27,6 @@ import org.example.garfend.components.stringResource
 import org.example.garfend.models.Section
 import org.example.garfend.models.Theme
 import org.example.garfend.styles.AboutTextStyle
-import org.example.garfend.util.Constants.ABOUT_ME_INFO
 import org.example.garfend.util.Constants.FONT_FAMILY
 import org.example.garfend.util.Constants.SECTION_WIDTH
 import org.jetbrains.compose.web.css.percent

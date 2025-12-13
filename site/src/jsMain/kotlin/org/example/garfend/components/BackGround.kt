@@ -3,19 +3,15 @@ package org.example.garfend.components
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.css.PointerEvents
 import com.varabyte.kobweb.compose.foundation.layout.Box
-import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.alignContent
-import com.varabyte.kobweb.compose.ui.modifiers.alignSelf
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxHeight
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxSize
 import com.varabyte.kobweb.compose.ui.modifiers.pointerEvents
 import com.varabyte.kobweb.compose.ui.modifiers.width
 import com.varabyte.kobweb.compose.ui.styleModifier
 import org.jetbrains.compose.web.css.AlignContent
-import org.jetbrains.compose.web.css.AlignSelf
 import org.jetbrains.compose.web.css.percent
-import org.jetbrains.compose.web.css.px
 
 @Composable
 fun mainBackground() {
