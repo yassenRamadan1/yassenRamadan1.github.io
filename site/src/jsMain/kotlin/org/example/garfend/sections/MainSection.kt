@@ -174,7 +174,7 @@ private fun ActionArea(alignStart: Boolean) {
     ) {
         GlowingButton(
             text = stringResource("hire_me"),
-            onClick = { window.location.href = Section.Contact.path }
+            onClick = { window.open("https://www.upwork.com/freelancers/~018456b0decc0006b0", "_blank") }
         )
         Box(modifier = Modifier.width(16.px))
         SocialIcons()
