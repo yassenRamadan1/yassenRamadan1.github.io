@@ -4,6 +4,14 @@ build
 out
 kotlin-js-store
 
+# Kobweb ignores
+kobweb-*.zip
+kobweb-cli/
+site/.kobweb/
+
+# Vercel ignores
+.vercel
+
 # IntelliJ ignores
 *.iml
 /*.ipr
