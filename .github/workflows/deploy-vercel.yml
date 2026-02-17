@@ -56,11 +56,20 @@ jobs:
           cd site
           ../kobweb-${{ env.KOBWEB_CLI_VERSION }}/bin/kobweb export --notty --layout static
 
+      - name: Verify build output
+        run: |
+          echo "Checking build output..."
+          ls -la site/.kobweb/site/
+          echo "Files in build:"
+          find site/.kobweb/site/ -type f | head -20
+
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
 
       - name: Deploy to Vercel
-        run: vercel deploy site/.kobweb/site --prod --token=${{ secrets.VERCEL_TOKEN }} --yes
+        run: |
+          cd site/.kobweb/site
+          vercel --prod --token=${{ secrets.VERCEL_TOKEN }} --yes
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
