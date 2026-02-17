@@ -225,17 +225,31 @@ private fun crossPlatformCard(
                     }
                 }
             }
-            P(
-                attrs = Modifier
-                    .id("portfolioTitle")
+            Link(
+                path = "/portfolio/${portfolio.urlId}",
+                modifier = Modifier
                     .fillMaxWidth()
-                    .margin(topBottom = 0.px)
-                    .fontFamily(*FONT_FAMILY)
-                    .fontSize(18.px)
-                    .fontWeight(FontWeight.Bold)
-                    .toAttrs()
+                    .textDecorationLine(TextDecorationLine.None)
+                    .styleModifier {
+                        property("transition", "color 0.2s ease")
+                    }
             ) {
-                Text(getFormattedTitle(portfolio))
+                P(
+                    attrs = Modifier
+                        .id("portfolioTitle")
+                        .fillMaxWidth()
+                        .margin(topBottom = 0.px)
+                        .fontFamily(*FONT_FAMILY)
+                        .fontSize(18.px)
+                        .fontWeight(FontWeight.Bold)
+                        .color(Theme.Primary.rgb)
+                        .styleModifier {
+                            property("cursor", "pointer")
+                        }
+                        .toAttrs()
+                ) {
+                    Text(getFormattedTitle(portfolio))
+                }
             }
             P(
                 attrs = Modifier
@@ -319,17 +333,31 @@ private fun singleLinkCard(
                     )
                 }
             }
-            P(
-                attrs = Modifier
-                    .id("portfolioTitle")
+            Link(
+                path = "/portfolio/${portfolio.urlId}",
+                modifier = Modifier
                     .fillMaxWidth()
-                    .margin(topBottom = 0.px)
-                    .fontFamily(*FONT_FAMILY)
-                    .fontSize(18.px)
-                    .fontWeight(FontWeight.Bold)
-                    .toAttrs()
+                    .textDecorationLine(TextDecorationLine.None)
+                    .styleModifier {
+                        property("transition", "color 0.2s ease")
+                    }
             ) {
-                Text(getFormattedTitle(portfolio))
+                P(
+                    attrs = Modifier
+                        .id("portfolioTitle")
+                        .fillMaxWidth()
+                        .margin(topBottom = 0.px)
+                        .fontFamily(*FONT_FAMILY)
+                        .fontSize(18.px)
+                        .fontWeight(FontWeight.Bold)
+                        .color(Theme.Primary.rgb)
+                        .styleModifier {
+                            property("cursor", "pointer")
+                        }
+                        .toAttrs()
+                ) {
+                    Text(getFormattedTitle(portfolio))
+                }
             }
             P(
                 attrs = Modifier
