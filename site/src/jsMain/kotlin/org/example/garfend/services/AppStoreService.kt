@@ -2,6 +2,7 @@ package org.example.garfend.services
 
 import kotlinx.browser.window
 import kotlinx.coroutines.await
+import kotlinx.coroutines.delay
 
 /**
  * Data class representing app metadata from iTunes API
@@ -38,93 +39,116 @@ object AppStoreService {
     }
 
     /**
-     * Fetch app metadata from iTunes API
-     * Returns null if fetch fails or app not found
+     * Fetch app metadata from iTunes API with retry logic
+     * Returns null if fetch fails or app not found after all retries
      */
     suspend fun fetchAppMetadata(appStoreUrl: String): AppStoreMetadata? {
-        return try {
-            console.log("=== STARTING APP STORE FETCH ===")
-            console.log("URL: $appStoreUrl")
+        val maxRetries = 3
+        val retryDelayMs = 1000L // 1 second between retries
 
-            val appId = extractAppId(appStoreUrl)
-            console.log("Extracted App ID: $appId")
+        repeat(maxRetries) { attempt ->
+            val attemptNumber = attempt + 1
+            console.log("=== APP STORE FETCH ATTEMPT $attemptNumber/$maxRetries ===")
 
-            if (appId == null) {
-                console.error("Failed to extract App ID")
-                null
-            } else {
-                val apiUrl = "https://itunes.apple.com/lookup?id=$appId"
-                console.log("Fetching from: $apiUrl")
+            val result = try {
+                console.log("URL: $appStoreUrl")
 
-                try {
-                    val response = window.fetch(apiUrl).await()
-                    console.log("Response received - Status: ${response.status}")
+                val appId = extractAppId(appStoreUrl)
+                console.log("Extracted App ID: $appId")
 
-                    if (!response.ok) {
-                        console.error("Bad response: ${response.status}")
-                        null
-                    } else {
-                        val text = response.text().await()
-                        console.log("Response text length: ${text.length}")
-
-                        try {
-                            // Use JavaScript's JSON.parse instead of kotlinx.serialization
-                            val parsed = JSON.parse<dynamic>(text)
-                            val resultCount = parsed.resultCount as Int
-                            console.log("JSON parsed - Results: $resultCount")
-
-                            if (resultCount == 0) {
-                                console.warn("No results found")
-                                null
-                            } else {
-                                val app = parsed.results[0]
-                                val trackName = app.trackName as? String ?: ""
-                                console.log("Success! App: $trackName")
-
-                                // Extract genres array
-                                val genresList = mutableListOf<String>()
-                                val genresArray = app.genres
-                                if (genresArray != null && genresArray != undefined) {
-                                    val length = genresArray.length as Int
-                                    for (i in 0 until length) {
-                                        genresList.add(genresArray[i] as String)
-                                    }
-                                }
-
-                                AppStoreMetadata(
-                                    description = app.description as? String ?: "",
-                                    averageUserRating = (app.averageUserRating as? Number)?.toDouble() ?: 0.0,
-                                    userRatingCount = (app.userRatingCount as? Number)?.toInt() ?: 0,
-                                    version = app.version as? String ?: "",
-                                    currentVersionReleaseDate = app.currentVersionReleaseDate as? String ?: "",
-                                    fileSizeBytes = app.fileSizeBytes as? String ?: "",
-                                    minimumOsVersion = app.minimumOsVersion as? String ?: "",
-                                    contentAdvisoryRating = app.contentAdvisoryRating as? String ?: "",
-                                    trackName = trackName,
-                                    sellerName = app.sellerName as? String ?: "",
-                                    price = (app.price as? Number)?.toDouble() ?: 0.0,
-                                    formattedPrice = app.formattedPrice as? String ?: "",
-                                    releaseNotes = app.releaseNotes as? String ?: "",
-                                    genres = genresList
-                                )
-                            }
-                        } catch (e: dynamic) {
-                            console.error("JSON parse error:")
-                            console.error(e)
-                            null
-                        }
-                    }
-                } catch (e: dynamic) {
-                    console.error("Fetch error:")
-                    console.error(e)
+                if (appId == null) {
+                    console.error("Failed to extract App ID")
                     null
+                } else {
+                    val apiUrl = "https://itunes.apple.com/lookup?id=$appId"
+                    console.log("Fetching from: $apiUrl")
+
+                    try {
+                        val response = window.fetch(apiUrl).await()
+                        console.log("Response received - Status: ${response.status}")
+
+                        if (!response.ok) {
+                            console.error("Bad response: ${response.status}")
+                            null
+                        } else {
+                            val text = response.text().await()
+                            console.log("Response text length: ${text.length}")
+
+                            try {
+                                // Use JavaScript's JSON.parse instead of kotlinx.serialization
+                                val parsed = JSON.parse<dynamic>(text)
+                                val resultCount = parsed.resultCount as Int
+                                console.log("JSON parsed - Results: $resultCount")
+
+                                if (resultCount == 0) {
+                                    console.warn("No results found")
+                                    null
+                                } else {
+                                    val app = parsed.results[0]
+                                    val trackName = app.trackName as? String ?: ""
+                                    console.log("Success! App: $trackName")
+
+                                    // Extract genres array
+                                    val genresList = mutableListOf<String>()
+                                    val genresArray = app.genres
+                                    if (genresArray != null && genresArray != undefined) {
+                                        val length = genresArray.length as Int
+                                        for (i in 0 until length) {
+                                            genresList.add(genresArray[i] as String)
+                                        }
+                                    }
+
+                                    AppStoreMetadata(
+                                        description = app.description as? String ?: "",
+                                        averageUserRating = (app.averageUserRating as? Number)?.toDouble() ?: 0.0,
+                                        userRatingCount = (app.userRatingCount as? Number)?.toInt() ?: 0,
+                                        version = app.version as? String ?: "",
+                                        currentVersionReleaseDate = app.currentVersionReleaseDate as? String ?: "",
+                                        fileSizeBytes = app.fileSizeBytes as? String ?: "",
+                                        minimumOsVersion = app.minimumOsVersion as? String ?: "",
+                                        contentAdvisoryRating = app.contentAdvisoryRating as? String ?: "",
+                                        trackName = trackName,
+                                        sellerName = app.sellerName as? String ?: "",
+                                        price = (app.price as? Number)?.toDouble() ?: 0.0,
+                                        formattedPrice = app.formattedPrice as? String ?: "",
+                                        releaseNotes = app.releaseNotes as? String ?: "",
+                                        genres = genresList
+                                    )
+                                }
+                            } catch (e: dynamic) {
+                                console.error("JSON parse error:")
+                                console.error(e)
+                                null
+                            }
+                        }
+                    } catch (e: dynamic) {
+                        console.error("Fetch error:")
+                        console.error(e)
+                        null
+                    }
                 }
+            } catch (e: dynamic) {
+                console.error("Outer error:")
+                console.error(e)
+                null
             }
-        } catch (e: dynamic) {
-            console.error("Outer error:")
-            console.error(e)
-            null
+
+            // If successful, return immediately
+            if (result != null) {
+                console.log("✓ Successfully fetched app data on attempt $attemptNumber")
+                return result
+            }
+
+            // If this wasn't the last attempt, wait before retrying
+            if (attemptNumber < maxRetries) {
+                console.warn("⚠ Attempt $attemptNumber failed. Retrying in ${retryDelayMs}ms...")
+                delay(retryDelayMs)
+            } else {
+                console.error("✗ All $maxRetries attempts failed")
+            }
         }
+
+        return null
     }
 
     /**
