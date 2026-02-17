@@ -46,7 +46,7 @@ fun homePage() {
                 serviceSection()
                 portfolioSection()
                 experienceSection()
-//              contactSection()
+                contactSection()
                 footerSection()
             }
             backToTopButton()
