@@ -31,7 +31,6 @@ import com.varabyte.kobweb.silk.components.icons.fa.FaLinkedin
 import com.varabyte.kobweb.silk.components.icons.fa.IconSize
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
-import kotlinx.browser.window
 import org.example.garfend.components.GlowingButton
 import org.example.garfend.components.LocalLanguage
 import org.example.garfend.components.SocialIconButton

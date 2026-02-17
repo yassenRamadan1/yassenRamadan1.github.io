@@ -29,7 +29,6 @@ import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import org.example.garfend.components.ContactIcons
 import org.example.garfend.components.SocialIconButton
-import org.example.garfend.components.contactForm
 import org.example.garfend.components.sectionTitle
 import org.example.garfend.models.Section
 import org.example.garfend.models.Theme

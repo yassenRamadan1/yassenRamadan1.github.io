@@ -8,13 +8,10 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.core.Page
 import com.varabyte.kobweb.core.rememberPageContext
-import com.varabyte.kobweb.silk.components.layout.SimpleGrid
-import com.varabyte.kobweb.silk.components.layout.numColumns
 import org.example.garfend.components.BackButton
 import org.example.garfend.components.PortfolioDetailContent
 import org.example.garfend.components.PortfolioDetailHeader
 import org.example.garfend.models.Portfolio
-import org.example.garfend.util.Constants
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 
