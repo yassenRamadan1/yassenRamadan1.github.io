@@ -32,33 +32,34 @@ object Constants {
 
     const val CONTACT_PHONE = "+201009483273"
     const val CONTACT_EMAIL = "abdelrahmanabdelwahab1090@gmail.com"
-
+    const val devName = "Abdelrahman Abdelwahab"
 }
 
 object Res {
     object Icon {
-        const val web = "web_icon.svg"
-        const val design = "design_icon.svg"
-        const val apple = "apple_icon.svg"
-        const val android = "android_icon.svg"
-        const val link = "link_icon.svg"
-        const val user = "user_icon.svg"
-        const val shield = "shield_icon.svg"
-        const val happy = "happy_icon.svg"
-        const val checkmark = "checkmark_icon.svg"
-        const val flutter = "flutter.svg"
+        const val web = "/web_icon.svg"
+        const val design = "/design_icon.svg"
+        const val apple = "/apple_icon.svg"
+        const val android = "/android_icon.svg"
+        const val link = "/link_icon.svg"
+        const val user = "/user_icon.svg"
+        const val shield = "/shield_icon.svg"
+        const val happy = "/happy_icon.svg"
+        const val checkmark = "/checkmark_icon.svg"
+        const val flutter = "/flutter.svg"
 
     }
     object Image {
-        const val background = "background.svg"
-        const val musemagic = "musemagic.png"
-        const val fromscratch = "fromscratch.png"
-        const val dawaalink = "dawaalink.png"
-        const val dawaalink2 = "dawaalink2.png"
-        const val titanumgym = "titanumgym.png"
-        const val dabdoub = "dabdoub.png"
-        const val orderk =  "orderk.png"
-        const val serineKamal = "serinekamal.jpeg"
+        const val background = "/background.svg"
+        const val musemagic = "/musemagic.png"
+        const val fromscratch = "/fromscratch.png"
+        const val dawaalink = "/dawaalink.png"
+        const val dawaalink2 = "/dawaalink2.png"
+        const val titanumgym = "/titanumgym.png"
+        const val dabdoub = "/dabdoub.png"
+        const val orderk =  "/orderk.png"
+        const val serineKamal = "/serinekamal.jpeg"
+        const val mabooks = "/mabooks_logo.png"
 
     }
 }
