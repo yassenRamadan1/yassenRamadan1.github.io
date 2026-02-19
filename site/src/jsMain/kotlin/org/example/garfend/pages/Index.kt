@@ -6,15 +6,18 @@ import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.modifiers.background
-import com.varabyte.kobweb.compose.ui.modifiers.fillMaxSize
+import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.core.Page
 import org.example.garfend.components.LocalLanguage
+import org.example.garfend.components.RamadanFooterDecorations
+import org.example.garfend.components.RamadanHeaderDecorations
 import org.example.garfend.components.backToTopButton
 import org.example.garfend.components.overflowMenu
+import org.example.garfend.components.rememberRamadanTheme
 import org.example.garfend.models.Theme
 import org.example.garfend.sections.*
+
 
 
 @Page
@@ -22,6 +25,7 @@ import org.example.garfend.sections.*
 fun homePage() {
     val language = LocalLanguage.current
     var menuOpened by remember { mutableStateOf(false) }
+    val ramadanThemeEnabled = rememberRamadanTheme()
 
     // Force recomposition when language changes using key()
     key(language) {
@@ -52,6 +56,12 @@ fun homePage() {
             backToTopButton()
             if (menuOpened) {
                 overflowMenu(onMenuClosed = { menuOpened = false })
+            }
+
+            // Ramadan decorations
+            if (ramadanThemeEnabled.value) {
+                RamadanHeaderDecorations()
+                RamadanFooterDecorations() // Fixed positioned - overlays above footer
             }
         }
     }

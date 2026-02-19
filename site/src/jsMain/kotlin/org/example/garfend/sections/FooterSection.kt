@@ -36,7 +36,12 @@ fun footerSection() {
             .backgroundColor(Theme.LightGrayBg.rgb),
         contentAlignment = Alignment.Center
     ) {
-        footerContent()
+        Column(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            footerContent()
+        }
     }
 }
 

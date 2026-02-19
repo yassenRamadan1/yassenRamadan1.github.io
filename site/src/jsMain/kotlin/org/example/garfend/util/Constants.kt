@@ -60,6 +60,12 @@ object Res {
         const val orderk =  "/orderk.png"
         const val serineKamal = "/serinekamal.jpeg"
         const val mabooks = "/mabooks_logo.png"
+        const val orderkshop = "/orderkshop_logo.png"
+        const val ramadanBanner = "/ramadan/ramadan_banner.png"
+        const val ramadanBanner2 = "/ramadan/ramadan_banner2.png"
+        const val ramadanLantern = "/ramadan/ramadan_lantern.png"
+        const val ramadanMosque = "/ramadan/ramadan_mosuqe.png"
+        const val ramadanMoon = "/ramadan/ramadan_moon.png"
 
     }
 }
