@@ -1,4 +1,4 @@
-package org.example.garfend.components
+package org.example.yassenramadan1.components
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement

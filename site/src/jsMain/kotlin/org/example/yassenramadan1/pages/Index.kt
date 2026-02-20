@@ -1,4 +1,4 @@
-package org.example.garfend.pages
+package org.example.yassenramadan1.pages
 
 import androidx.compose.runtime.*
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
@@ -9,14 +9,14 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.core.Page
-import org.example.garfend.components.LocalLanguage
-import org.example.garfend.components.RamadanFooterDecorations
-import org.example.garfend.components.RamadanHeaderDecorations
-import org.example.garfend.components.backToTopButton
-import org.example.garfend.components.overflowMenu
-import org.example.garfend.components.rememberRamadanTheme
-import org.example.garfend.models.Theme
-import org.example.garfend.sections.*
+import org.example.yassenramadan1.components.LocalLanguage
+import org.example.yassenramadan1.components.RamadanFooterDecorations
+import org.example.yassenramadan1.components.RamadanHeaderDecorations
+import org.example.yassenramadan1.components.backToTopButton
+import org.example.yassenramadan1.components.overflowMenu
+import org.example.yassenramadan1.components.rememberRamadanTheme
+import org.example.yassenramadan1.models.Theme
+import org.example.yassenramadan1.sections.*
 
 
 
@@ -61,7 +61,7 @@ fun homePage() {
             // Ramadan decorations
             if (ramadanThemeEnabled.value) {
                 RamadanHeaderDecorations()
-                RamadanFooterDecorations() // Fixed positioned - overlays above footer
+                //RamadanFooterDecorations() // Fixed positioned - overlays above footer
             }
         }
     }

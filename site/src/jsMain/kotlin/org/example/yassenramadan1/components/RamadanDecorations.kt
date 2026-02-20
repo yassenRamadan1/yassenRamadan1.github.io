@@ -1,4 +1,4 @@
-package org.example.garfend.components
+package org.example.yassenramadan1.components
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.ui.Modifier
@@ -6,7 +6,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.silk.components.graphics.Image
-import org.example.garfend.util.Res
+import org.example.yassenramadan1.util.Res
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.Img
 

@@ -9,7 +9,7 @@ plugins {
     alias(libs.plugins.kobwebx.markdown)
 }
 
-group = "org.example.garfend"
+group = "org.example.yassenramadan1"
 version = "1.0-SNAPSHOT"
 
 kobweb {
@@ -39,7 +39,7 @@ kobweb {
 }
 
 kotlin {
-    configAsKobwebApplication("garfend", includeServer = true)
+    configAsKobwebApplication("yassenramadan1", includeServer = true)
 
     sourceSets {
         commonMain.dependencies {

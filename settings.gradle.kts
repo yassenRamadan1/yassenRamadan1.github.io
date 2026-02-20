@@ -5,7 +5,7 @@ pluginManagement {
     }
 }
 
-rootProject.name = "garfend"
+rootProject.name = "yassenramadan1"
 
 include(":site")
 include(":worker")

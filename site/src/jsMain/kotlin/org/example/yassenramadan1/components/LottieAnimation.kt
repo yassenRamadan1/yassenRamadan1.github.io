@@ -1,12 +1,12 @@
-package org.example.garfend.components
+package org.example.yassenramadan1.components
 
 import androidx.compose.runtime.*
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
-import org.example.garfend.util.AnimationItem
-import org.example.garfend.util.Lottie
-import org.example.garfend.util.animationConfig
+import org.example.yassenramadan1.util.AnimationItem
+import org.example.yassenramadan1.util.Lottie
+import org.example.yassenramadan1.util.animationConfig
 import org.jetbrains.compose.web.css.CSSSizeValue
 import org.jetbrains.compose.web.css.CSSUnit
 import org.jetbrains.compose.web.css.px

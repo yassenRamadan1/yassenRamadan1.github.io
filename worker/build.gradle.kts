@@ -5,7 +5,7 @@ plugins {
     alias(libs.plugins.kobweb.worker)
 }
 
-group = "org.example.garfend.worker"
+group = "org.example.yassenramadan1.worker"
 version = "1.0-SNAPSHOT"
 
 kotlin {

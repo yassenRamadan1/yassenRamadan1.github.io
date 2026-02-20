@@ -1,4 +1,4 @@
-package org.example.garfend.components
+package org.example.yassenramadan1.components
 
 import androidx.compose.runtime.*
 import kotlinx.browser.localStorage
