@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 200" width="100" height="200">
+  <!-- Spotlight Stand -->
+  <rect x="42" y="150" width="16" height="50" fill="url(#standGradient)" stroke="#654321" stroke-width="2" rx="2"/>
+
+  <!-- Spotlight Base -->
+  <rect x="35" y="145" width="30" height="10" rx="3" fill="#8B4513" stroke="#654321" stroke-width="2"/>
+
+  <!-- Spotlight Body -->
+  <ellipse cx="50" cy="150" rx="20" ry="15" fill="url(#spotlightGradient)" stroke="#654321" stroke-width="2"/>
+
+  <!-- Light Beam -->
+  <path d="M 40 140 L 30 20 L 70 20 L 60 140 Z" fill="url(#lightBeam)" opacity="0.4"/>
+
+  <!-- Bright Center -->
+  <ellipse cx="50" cy="30" rx="10" ry="15" fill="#FFFF99" opacity="0.6">
+    <animate attributeName="opacity" values="0.4;0.7;0.4" dur="2s" repeatCount="indefinite"/>
+  </ellipse>
+
+  <!-- Glass Cover -->
+  <ellipse cx="50" cy="145" rx="18" ry="12" fill="url(#glassGradient)" stroke="#DAA520" stroke-width="1.5"/>
+
+  <!-- Gradients -->
+  <defs>
+    <linearGradient id="standGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B4513;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#654321;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="spotlightGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#DAA520;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B4513;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="lightBeam" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:0" />
+      <stop offset="50%" style="stop-color:#FFD700;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#FFFF99;stop-opacity:0.6" />
+    </linearGradient>
+
+    <linearGradient id="glassGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.4" />
+      <stop offset="50%" style="stop-color:#FFFFFF;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:0.4" />
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <!-- Ground -->
+  <rect x="0" y="270" width="400" height="30" fill="url(#groundGradient)"/>
+
+  <!-- Left Minaret -->
+  <rect x="60" y="120" width="25" height="150" fill="url(#towerGradient)" stroke="#8B4513" stroke-width="2"/>
+  <rect x="55" y="115" width="35" height="10" fill="#DAA520" stroke="#8B4513" stroke-width="2"/>
+  <rect x="60" y="105" width="25" height="12" fill="#FFD700" stroke="#8B4513" stroke-width="1.5"/>
+  <!-- Left Dome -->
+  <path d="M 72.5 105 Q 55 95, 55 85 Q 55 70, 72.5 60 Q 90 70, 90 85 Q 90 95, 72.5 105 Z"
+        fill="url(#domeGradient)" stroke="#8B4513" stroke-width="2"/>
+  <path d="M 70 55 A 5 5 0 1 1 75 50 A 4 4 0 1 0 70 55 Z" fill="#FFD700" stroke="#8B4513" stroke-width="1"/>
+  <circle cx="72.5" cy="45" r="3" fill="#FFD700" stroke="#8B4513" stroke-width="1"/>
+
+  <!-- Right Minaret -->
+  <rect x="315" y="120" width="25" height="150" fill="url(#towerGradient)" stroke="#8B4513" stroke-width="2"/>
+  <rect x="310" y="115" width="35" height="10" fill="#DAA520" stroke="#8B4513" stroke-width="2"/>
+  <rect x="315" y="105" width="25" height="12" fill="#FFD700" stroke="#8B4513" stroke-width="1.5"/>
+  <!-- Right Dome -->
+  <path d="M 327.5 105 Q 310 95, 310 85 Q 310 70, 327.5 60 Q 345 70, 345 85 Q 345 95, 327.5 105 Z"
+        fill="url(#domeGradient)" stroke="#8B4513" stroke-width="2"/>
+  <path d="M 325 55 A 5 5 0 1 1 330 50 A 4 4 0 1 0 325 55 Z" fill="#FFD700" stroke="#8B4513" stroke-width="1"/>
+  <circle cx="327.5" cy="45" r="3" fill="#FFD700" stroke="#8B4513" stroke-width="1"/>
+
+  <!-- Main Building -->
+  <rect x="120" y="150" width="160" height="120" fill="url(#buildingGradient)" stroke="#8B4513" stroke-width="3"/>
+
+  <!-- Windows -->
+  <rect x="135" y="170" width="20" height="30" rx="10" fill="#654321" opacity="0.7"/>
+  <rect x="165" y="170" width="20" height="30" rx="10" fill="#654321" opacity="0.7"/>
+  <rect x="215" y="170" width="20" height="30" rx="10" fill="#654321" opacity="0.7"/>
+  <rect x="245" y="170" width="20" height="30" rx="10" fill="#654321" opacity="0.7"/>
+
+  <!-- Main Entrance Arch -->
+  <path d="M 170 220 L 170 260 Q 170 265, 175 265 L 225 265 Q 230 265, 230 260 L 230 220 Q 230 210, 200 195 Q 170 210, 170 220 Z"
+        fill="#654321" opacity="0.8" stroke="#8B4513" stroke-width="2"/>
+
+  <!-- Door Details -->
+  <rect x="190" y="235" width="20" height="30" fill="#8B4513" stroke="#654321" stroke-width="1"/>
+  <circle cx="205" cy="250" r="2" fill="#FFD700"/>
+
+  <!-- Decorative Patterns -->
+  <circle cx="145" cy="220" r="8" fill="none" stroke="#DAA520" stroke-width="2"/>
+  <path d="M 145 212 L 145 228 M 137 220 L 153 220" stroke="#DAA520" stroke-width="2"/>
+
+  <circle cx="255" cy="220" r="8" fill="none" stroke="#DAA520" stroke-width="2"/>
+  <path d="M 255 212 L 255 228 M 247 220 L 263 220" stroke="#DAA520" stroke-width="2"/>
+
+  <!-- Side Domes -->
+  <path d="M 130 150 Q 115 140, 115 130 Q 115 115, 130 105 Q 145 115, 145 130 Q 145 140, 130 150 Z"
+        fill="url(#domeGradient)" stroke="#8B4513" stroke-width="2"/>
+
+  <path d="M 270 150 Q 255 140, 255 130 Q 255 115, 270 105 Q 285 115, 285 130 Q 285 140, 270 150 Z"
+        fill="url(#domeGradient)" stroke="#8B4513" stroke-width="2"/>
+
+  <!-- Main Central Dome -->
+  <path d="M 200 150 Q 165 130, 165 105 Q 165 70, 200 45 Q 235 70, 235 105 Q 235 130, 200 150 Z"
+        fill="url(#mainDomeGradient)" stroke="#8B4513" stroke-width="3"/>
+
+  <!-- Dome Details -->
+  <path d="M 175 110 Q 200 90, 225 110" fill="none" stroke="#DAA520" stroke-width="2" opacity="0.6"/>
+  <path d="M 180 95 Q 200 80, 220 95" fill="none" stroke="#DAA520" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Crescent on Main Dome -->
+  <path d="M 195 40 A 10 10 0 1 1 205 30 A 8 8 0 1 0 195 40 Z" fill="#FFD700" stroke="#8B4513" stroke-width="1.5"/>
+  <path d="M 208 28 L 211 23 L 220 25 L 213 30 L 216 37 L 208 33 L 200 37 L 203 30 L 196 25 L 205 23 Z"
+        fill="#FFD700" stroke="#8B4513" stroke-width="1" transform="scale(0.9) translate(12, 2)"/>
+
+  <!-- Stars around Dome -->
+  <path d="M 240 60 L 242 65 L 248 65 L 243 69 L 245 75 L 240 71 L 235 75 L 237 69 L 232 65 L 238 65 Z"
+        fill="#FFD700" opacity="0.8"/>
+
+  <path d="M 160 60 L 162 65 L 168 65 L 163 69 L 165 75 L 160 71 L 155 75 L 157 69 L 152 65 L 158 65 Z"
+        fill="#FFD700" opacity="0.8"/>
+
+  <!-- Gradients -->
+  <defs>
+    <linearGradient id="domeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFA500;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DAA520;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="mainDomeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#FFA500;stop-opacity:0.95" />
+      <stop offset="100%" style="stop-color:#DAA520;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="buildingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFA500;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#DAA520;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B4513;stop-opacity:0.9" />
+    </linearGradient>
+
+    <linearGradient id="towerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FFA500;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#DAA520;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="groundGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B4513;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#654321;stop-opacity:0.5" />
+    </linearGradient>
+  </defs>
+</svg>

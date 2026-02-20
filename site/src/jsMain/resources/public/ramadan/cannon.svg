@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 140" width="280" height="140">
+  <!-- Platform/Base -->
+  <rect x="20" y="110" width="240" height="12" rx="4" fill="url(#platformGradient)" stroke="#8B4513" stroke-width="2"/>
+  <rect x="25" y="118" width="230" height="4" fill="#654321" opacity="0.5"/>
+
+  <!-- Support Legs -->
+  <rect x="50" y="95" width="8" height="20" fill="#8B4513" stroke="#654321" stroke-width="1.5"/>
+  <rect x="120" y="95" width="8" height="20" fill="#8B4513" stroke="#654321" stroke-width="1.5"/>
+  <rect x="190" y="95" width="8" height="20" fill="#8B4513" stroke="#654321" stroke-width="1.5"/>
+
+  <!-- Main Cannon Body -->
+  <ellipse cx="140" cy="85" rx="80" ry="25" fill="url(#cannonBodyGradient)" stroke="#8B4513" stroke-width="2.5"/>
+
+  <!-- Decorative Golden Bands -->
+  <rect x="65" y="72" width="150" height="6" rx="2" fill="#FFD700" stroke="#DAA520" stroke-width="1" opacity="0.9"/>
+  <rect x="65" y="92" width="150" height="6" rx="2" fill="#FFD700" stroke="#DAA520" stroke-width="1" opacity="0.9"/>
+
+  <!-- Central Ornament -->
+  <circle cx="140" cy="85" r="18" fill="url(#ornamentGradient)" stroke="#8B4513" stroke-width="2"/>
+  <circle cx="140" cy="85" r="12" fill="#FFD700" stroke="#DAA520" stroke-width="1.5"/>
+  <circle cx="140" cy="85" r="6" fill="#FFA500"/>
+
+  <!-- Decorative pattern in center -->
+  <path d="M 140 79 L 142 85 L 148 85 L 143 89 L 145 95 L 140 91 L 135 95 L 137 89 L 132 85 L 138 85 Z"
+        fill="#FFD700" opacity="0.8" transform="scale(0.6) translate(93, 23)"/>
+
+  <!-- Cannon Barrel -->
+  <rect x="215" y="70" width="55" height="30" rx="3" fill="url(#barrelGradient)" stroke="#8B4513" stroke-width="2.5"/>
+
+  <!-- Barrel decorative bands -->
+  <rect x="218" y="75" width="48" height="4" fill="#DAA520" opacity="0.6"/>
+  <rect x="218" y="91" width="48" height="4" fill="#DAA520" opacity="0.6"/>
+
+  <!-- Barrel Opening -->
+  <ellipse cx="270" cy="85" rx="4" ry="15" fill="#4A3319" stroke="#654321" stroke-width="2"/>
+
+  <!-- Fire/Smoke Effect -->
+  <g opacity="0.9">
+    <circle cx="275" cy="85" r="10" fill="#FFD700">
+      <animate attributeName="r" values="10;16;10" dur="1s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="1s" repeatCount="indefinite"/>
+    </circle>
+
+    <circle cx="278" cy="78" r="8" fill="#FFA500" opacity="0.8">
+      <animate attributeName="r" values="8;12;8" dur="0.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;0.9;0.6" dur="0.8s" repeatCount="indefinite"/>
+    </circle>
+
+    <circle cx="278" cy="92" r="8" fill="#FFA500" opacity="0.8">
+      <animate attributeName="r" values="8;12;8" dur="0.9s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;0.9;0.6" dur="0.9s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- Sparkle stars -->
+  <g transform="translate(280, 70)">
+    <path d="M 0 -6 L 1.5 -2 L 6 -2 L 2.5 1 L 4 6 L 0 3 L -4 6 L -2.5 1 L -6 -2 L -1.5 -2 Z"
+          fill="#FFD700">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="0.7s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <g transform="translate(275, 105)">
+    <path d="M 0 -5 L 1.2 -1.5 L 5 -1.5 L 2 1 L 3.2 5 L 0 2.5 L -3.2 5 L -2 1 L -5 -1.5 L -1.2 -1.5 Z"
+          fill="#FFA500">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="0.9s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <g transform="translate(285, 85)">
+    <path d="M 0 -7 L 2 -2 L 7 -2 L 3 2 L 5 7 L 0 4 L -5 7 L -3 2 L -7 -2 L -2 -2 Z"
+          fill="#FFD700">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="0.8s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- Ground Shadow -->
+  <ellipse cx="140" cy="124" rx="100" ry="6" fill="#000000" opacity="0.15"/>
+
+  <!-- Gradients -->
+  <defs>
+    <linearGradient id="platformGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B4513;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#654321;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4A3319;stop-opacity:1" />
+    </linearGradient>
+
+    <radialGradient id="cannonBodyGradient">
+      <stop offset="0%" style="stop-color:#FFA500;stop-opacity:1" />
+      <stop offset="60%" style="stop-color:#DAA520;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B4513;stop-opacity:1" />
+    </radialGradient>
+
+    <linearGradient id="barrelGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#DAA520;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#8B4513;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#654321;stop-opacity:1" />
+    </linearGradient>
+
+    <radialGradient id="ornamentGradient">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#DAA520;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B4513;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+</svg>
