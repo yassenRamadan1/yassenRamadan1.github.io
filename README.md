@@ -77,5 +77,3 @@ I'm focused on delivering high-quality, predictable behavior in mobile and cross
 - **Email**: yassenyasooo50@gmail.com
 - **Phone**: 01287802849
 - **GitHub**: [@yassenramadan1](https://github.com/yassenramadan1)
-
----
